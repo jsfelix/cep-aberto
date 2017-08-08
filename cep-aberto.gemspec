@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'cep-aberto'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2017-08-08'
   s.summary     = "Ruby Connector for the CEP ABERTO API (www.cepaberto.com). A token is required to use this gem."
   s.description = s.summary

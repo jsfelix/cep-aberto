@@ -1,4 +1,4 @@
-# Main module CepAberto
+# Main module CepAberto.
 # Author:: Jefferson Felix
 module CepAberto
   # This class holds the methods to find zipcodes and address using the CEP 
@@ -12,7 +12,7 @@ module CepAberto
     # CEP Aberto API (v2)
     @domain = "http://www.cepaberto.com/api/v2/"
 
-    # Find an address from a zipcode using the CEP Aberto API
+    # Find an address from a zipcode using the CEP Aberto API.
     # Params:
     # +zipcode+:: the zipcode to be searched by CEP Aberto API
     # +token+:: the user authorization token

@@ -45,6 +45,19 @@ To list cities from a given state, do this:
 require "cep-aberto"
 CepAberto::Cep::cities("SP", "1234567890abcdef01234567890abcde")
 ```
+And the result is:
+```ruby
+=> ["Adamantina",
+ "Adolfo",
+ "Agisse (Rancharia)",
+ "Aguaí",
+ "Águas da Prata",
+ "Águas de Lindóia",
+ "Águas de Santa Bárbara",
+ "Águas de São Pedro",
+ "Água Vermelha (São Carlos)",
+ ...
+```
 
 ## Thanks
 

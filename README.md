@@ -18,7 +18,8 @@ gem install cep-aberto
 ## Usage
 First, you need a Token Authorization to use this gem. Go to [CEP Aberto site](http://www.cepaberto.com/) and sign up for free.
 
-Then, run:
+### Find address
+Run:
 ```ruby
 require "cep-aberto"
 CepAberto::Cep::find("01001000", "1234567890abcdef01234567890abcde")
@@ -36,6 +37,13 @@ This method return a hash with the full address for the zipcode:
  "ddd"=>11,
  "ibge"=>"3550308",
  "estado"=>"SP"}
+```
+
+### List cities 
+To list cities from a given state, do this:
+```ruby
+require "cep-aberto"
+CepAberto::Cep::cities("SP", "1234567890abcdef01234567890abcde")
 ```
 
 ## Thanks

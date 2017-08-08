@@ -1,7 +1,7 @@
 # Main module CepAberto.
 # Author:: Jefferson Felix
 module CepAberto
-  # This class holds the methods to find zipcodes and address using the CEP 
+  # This class holds the methods to find zipcodes and addresses using the CEP 
   # Aberto API.
   class Cep
     

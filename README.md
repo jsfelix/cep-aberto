@@ -8,7 +8,7 @@ gem 'cep-aberto'
 ```
 And bundle with:
 ```bash
-bundle 
+bundle
 ```
 Or execute manually:
 ```bash
@@ -16,7 +16,8 @@ gem install cep-aberto
 ```
 
 ## Usage
-First, you need a Token Authorization to use this gem. Go to [CEP Aberto site](http://www.cepaberto.com/) and sign up for free.
+First, you need an authorization token to use this gem. Go to [CEP Aberto](http://www.cepaberto.com/)
+and sign up for free.
 
 ### Find address
 Run:
@@ -39,11 +40,28 @@ This method return a hash with the full address for the zipcode:
  "estado"=>"SP"}
 ```
 
-### List cities 
+### List cities
 To list cities from a given state, do this:
 ```ruby
 require "cep-aberto"
 CepAberto::Cep::cities("SP", "1234567890abcdef01234567890abcde")
+```
+And the result is:
+```ruby
+=> ["Adamantina",
+ "Adolfo",
+ "Aguaí",
+ "Águas da Prata",
+ "Águas de Lindóia",
+ "Águas de Santa Bárbara",
+ "Águas de São Pedro",
+ ...
+```
+### List cities (including districts)
+To list cities and districts from a state, do this:
+```ruby
+require "cep-aberto"
+CepAberto::Cep::cities_with_districts("SP", "1234567890abcdef01234567890abcde")
 ```
 And the result is:
 ```ruby
@@ -54,10 +72,10 @@ And the result is:
  "Águas da Prata",
  "Águas de Lindóia",
  "Águas de Santa Bárbara",
- "Águas de São Pedro",
- "Água Vermelha (São Carlos)",
  ...
 ```
+
+
 
 ## Thanks
 

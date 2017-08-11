@@ -28,18 +28,32 @@ module CepAberto
       return address
     end
 
+    # Returns a list of cities from a given state, including their districts. <br />
+    # Params:
+    # +state+:: State acronym (e.g. SP)
+    # +token+:: the user authorization token
+    # Returns an array with all cities from the state
+    def Cep::cities_with_districts(state, token)
+      uri = URI("#{@domain}cities.json")
+      params = {'estado' => state}
+      all_cities = request_cep(uri, params, token)
+      cities_arr = Array.new
+      all_cities.each do |c|
+        cities_arr.push(c["nome"])
+      end
+      return cities_arr
+    end
+
     # Returns a list of cities from a given state. This method excludes districts. <br />
     # Params:
     # +state+:: State acronym (e.g. SP)
     # +token+:: the user authorization token
     # Returns an array with all cities from the state
     def Cep::cities(state, token)
-      uri = URI("#{@domain}cities.json")
-      params = {'estado' => state}
-      all_cities = request_cep(uri, params, token)
+      all_cities = cities_with_districts(state, token)
       cities_arr = Array.new
       all_cities.each do |c|
-        cities_arr.push(c["nome"]) unless c["nome"].end_with?(')')
+        cities_arr.push(c) unless c.end_with?(')')
       end
       return cities_arr
     end

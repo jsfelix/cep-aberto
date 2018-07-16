@@ -1,5 +1,5 @@
 # cep-aberto
-Ruby Connector for the CEP ABERTO API (www.cepaberto.com)
+Ruby Connector for the CEP ABERTO API v3 (www.cepaberto.com)
 
 ## Installation
 Include cep-aberto in Gemfile:
@@ -77,4 +77,4 @@ And the result is:
 
 ## Thanks
 
-Thanks to [CEP Aberto](http://www.cepaberto.com)
+Thanks to [CEP Aberto](http://cepaberto.com)

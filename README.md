@@ -29,15 +29,13 @@ CepAberto::Cep::find("01001000", "1234567890abcdef01234567890abcde")
 This method return a hash with the full address for the zipcode:
 ```ruby
 => {"altitude"=>760.0,
- "bairro"=>"Sé",
  "cep"=>"01001000",
  "latitude"=>"-23.5479099981",
  "longitude"=>"-46.636",
- "logradouro"=>"Praça da Sé",
- "cidade"=>"São Paulo",
- "ddd"=>11,
- "ibge"=>"3550308",
- "estado"=>"SP"}
+ "logradouro"=>"Pra\u00E7a da S\u00E9",
+ "bairro"=>"S\u00E9",
+ "cidade"=>{"ddd"=>11, "ibge"=>"3550308", "nome"=>"S\u00E3o Paulo"},
+ "estado"=>{"sigla"=>"SP"}}
 ```
 
 ### List cities

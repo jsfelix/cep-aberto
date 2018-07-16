@@ -9,8 +9,8 @@ module CepAberto
     require "uri"
     require "json"
 
-    # CEP Aberto API (v2)
-    @domain = "http://www.cepaberto.com/api/v2/"
+    # CEP Aberto API (v3)
+    @domain = "http://www.cepaberto.com/api/v3/"
 
     # Find an address from a zipcode using the CEP Aberto API. <br />
     # Params:
@@ -19,13 +19,13 @@ module CepAberto
     # Returns a hash with the full address
     def Cep::find(cep, token)
       validate_cep(cep)
-      uri = URI("#{@domain}ceps.json")
+      uri = URI("#{@domain}cep")
       params = {'cep' => cep}
       address = request_cep(uri, params, token)
       if(address["logradouro"].is_a?String)
         address["logradouro"] = address["logradouro"].split(",")[0]
       end
-      return address
+      address
     end
 
     # Returns a list of cities from a given state, including their districts. <br />
@@ -34,14 +34,14 @@ module CepAberto
     # +token+:: the user authorization token
     # Returns an array with all cities from the state
     def Cep::cities_with_districts(state, token)
-      uri = URI("#{@domain}cities.json")
+      uri = URI("#{@domain}cities")
       params = {'estado' => state}
       all_cities = request_cep(uri, params, token)
       cities_arr = Array.new
       all_cities.each do |c|
         cities_arr.push(c["nome"])
       end
-      return cities_arr
+      cities_arr
     end
 
     # Returns a list of cities from a given state. This method excludes districts. <br />
@@ -55,7 +55,7 @@ module CepAberto
       all_cities.each do |c|
         cities_arr.push(c) unless c.end_with?(')')
       end
-      return cities_arr
+      cities_arr
     end
 
     private
